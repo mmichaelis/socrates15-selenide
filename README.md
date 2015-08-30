@@ -6,6 +6,12 @@ It controls a [Ext JS 5 example application][extjs-examples]. The required [Ext 
 been rebuild as Java proxies. This way a textfield for example can provide the concrete input field which should
 receive the key events.
 
+Just a short note why not using the DOM to locate elements: Actually the component manager of Ext JS knows much
+better how to locate component elements. Because of this we only fall back to the Web-/SelenideElements if we need
+to.
+
+The test to run this proof-of-concept is `ExtJsSelenidePocTest`.
+
 [selenide]: <http://selenide.org/> "Selenide: concise UI tests in Java"
 [socrates]: <https://www.socrates-conference.de/> "SoCraTes Germany - International Software Craftsmanship and Testing Conference"
 [extjs-examples]: <http://dev.sencha.com/extjs/5.1.0/examples/> "Ext JS 5.0 Examples"
