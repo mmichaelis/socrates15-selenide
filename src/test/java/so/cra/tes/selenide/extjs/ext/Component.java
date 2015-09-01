@@ -1,7 +1,6 @@
 package so.cra.tes.selenide.extjs.ext;
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -29,13 +27,10 @@ public class Component extends Base {
   private final Supplier<List<String>> initSupplier = new Supplier<List<String>>() {
     @Override
     public List<String> get() {
-      return ownerCt().map(new Function<Component, List<String>>() {
-        @Override
-        public List<String> apply(Component component) {
+      return ownerCt().map((component) -> {
           List<String> path = new ArrayList<>(component.getQueryPath());
           path.add(query);
           return path;
-        }
       }).orElse(Collections.singletonList(query));
     }
   };
