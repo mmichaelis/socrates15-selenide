@@ -12,10 +12,7 @@ to.
 
 The test to run this proof-of-concept is `ExtJsSelenidePocTest`.
 
-Find more information in the related blog post [#socrates15: Ext JS 5 Tests with Selenide][mindsblog].
-
 [selenide]: <http://selenide.org/> "Selenide: concise UI tests in Java"
 [socrates]: <https://www.socrates-conference.de/> "SoCraTes Germany - International Software Craftsmanship and Testing Conference"
 [extjs-examples]: <http://dev.sencha.com/extjs/5.1.0/examples/> "Ext JS 5.0 Examples"
 [extjs-api]: <https://docs.sencha.com/extjs/5.1/5.1.0-apidocs/> "API Documentation - Ext JS - Sencha Docs"
-[mindsblog]: <http://minds.coremedia.com/2015/08/31/socrates15-ext-js-5-tests-with-selenide/> "#socrates15: Ext JS 5 Tests with Selenide | Minds"
