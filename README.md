@@ -106,6 +106,25 @@ The test to run this proof-of-concept is `ExtJsSelenidePocTest`.
     
 The rest of the test steps is quite similar.
 
+## From UI-Element to its Test-Representation
+
+When you start writing your test, you typically start with the very component you want to interact with. In this case, it was the textfield to anter a new task. here is one approach, without knowing the sources, how to get to know how to access the element
+from within your test.
+
+1. Open the AUT.
+2. Hit F12 to get to your developer console.
+3. Open the target element in the inspector.
+4. Get the ID of the element like `textfield-1037-inputEl`
+5. Reduce it to the component ID. In this case `textfield-1037`.
+6. Access the element via Ext in JavaScript console: `Ext.getCmp("textfield-1037")`
+7. Get some way how to identify this element later on, for example via XType: `Ext.getCmp("textfield-1037").xtype` (`textfield`)
+8. Climb up its owners: `Ext.getCmp("textfield-1037").ownerCt.xtype` (`taskForm`)
+9. And again: `Ext.getCmp("textfield-1037").ownerCt.ownerCt.xtype` (`taskGrid`)
+
+Now you have the hierarchy how to access the element, i. e. `TaskGrid` to `TaskForm` to its textfield.
+
+Note, that if it is not important to you, that the textfield is part of the `TaskForm` then you would simply address it directly via `TaskGrid`. This will ease refactoring the UI structure later on, without breaking the test. If you address it via its complete path, the complete path will become part of the test specification, thus, changing it, will break the test - and you then have to decide, if the change was wrong, or your test needs to be adapted.
+
 ## Summary
 
 * We wrap Ext JS components in the very same hierarchy as Ext JS does, so that we can re-use general methods via inheritance.
